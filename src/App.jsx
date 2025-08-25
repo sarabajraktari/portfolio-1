@@ -9,7 +9,7 @@ import Footer from './components/Footer.jsx'
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-900">
+    <div className="min-h-screen flex flex-col text-gray-900">
       <Navbar />
       <main>
         <Hero />

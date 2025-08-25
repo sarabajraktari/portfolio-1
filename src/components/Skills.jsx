@@ -98,6 +98,22 @@ export default function Skills() {
         ease: "sine.inOut",
       });
     }
+    // Inside your useEffect for Skills, after creating stars:
+    for (let star of starsContainer.children) {
+      const delay = Math.random() * 2;
+      const duration = 2 + Math.random() * 2;
+      const direction = Math.random() > 0.5 ? "+=20" : "-=20"; // small vertical drift
+
+      gsap.to(star, {
+        y: direction,
+        repeat: -1,
+        yoyo: true,
+        duration,
+        delay,
+        ease: "sine.inOut",
+      });
+    }
+
 
     return () => {
       st.kill();
@@ -125,44 +141,44 @@ export default function Skills() {
         <FireSVG />
       </div>
         {/* About Content */}
-      <div className="relative z-30 container grid md:grid-cols-2 gap-10">
-        <div
-           ref={(el) => (cardRefs.current[0] = el)} 
-          className="p-6 rounded-xl shadow-lg"
-          style={{  backgroundColor: "rgb(31 41 55 / 0.4)" }}
-        >
-          <h2 className="text-2xl font-bold mb-3">About Me</h2>
-          <p>
-            I&apos;m a web developer focused on building clean, performant and
-            user-friendly applications.
-          </p>
-          <p className="text-sm text-gray-300 mt-2">Based in Prizren, Kosovo.</p>
-        </div>
+        <div className=" flex flex-col items-center">
+          <h2 className="text-3xl font-bold text-center my-10">About</h2>
+          <div className="relative z-30 container grid md:grid-cols-2 gap-10">
+            <div
+              ref={(el) => (cardRefs.current[0] = el)} 
+              className="p-6 rounded-xl shadow-lg"
+              style={{  backgroundColor: "rgb(31 41 55 / 0.4)" }}
+            >
+              <h2 className="text-2xl font-bold mb-3">About Me</h2>
+              <p>
+                I&apos;m a web developer focused on building clean, performant and
+                user-friendly applications.
+              </p>
+              <p className="text-sm text-gray-300 mt-2">Based in Prizren, Kosovo.</p>
+            </div>
 
-        <div
-          ref={(el) => (cardRefs.current[1] = el)}
-          className="p-6 rounded-xl shadow-lg"
-          style={{  backgroundColor: "rgb(31 41 55 / 0.4)" }}
-        >
-          <h2 className="text-2xl font-bold mb-3">Education</h2>
-          <ul className="space-y-2 text-sm leading-snug">
-            <li className="font-medium">
-              BSc in Computer Science, University of Prizren &quot;Ukshin Hoti&quot;
-            </li>
-            <li>2018 – 2021 · Software Design</li>
-            <li>
-              Coursework: Software Development, Algorithms & Data Structures,
-              Database Administration, Network Design
-            </li>
-          </ul>
+            <div
+              ref={(el) => (cardRefs.current[1] = el)}
+              className="p-6 rounded-xl shadow-lg"
+              style={{  backgroundColor: "rgb(31 41 55 / 0.4)" }}
+            >
+              <h2 className="text-2xl font-bold mb-3">Education</h2>
+              <ul className="space-y-2 text-sm leading-snug">
+                <li className="font-medium">
+                  BSc in Computer Science, University of Prizren &quot;Ukshin Hoti&quot;
+                </li>
+                <li>2018 – 2021 · Software Design</li>
+                <li>
+                  Coursework: Software Development, Algorithms & Data Structures,
+                  Database Administration, Network Design
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-
       {/* Skills Content */}
       <div className="container relative z-20">
-        <div className="title flex justify-center items-center mt-10 mb-10">
-          <h2 className="text-3xl font-bold text-center">Skills</h2>
-        </div>
+        <h2 className="text-3xl font-bold text-center my-10">Skills</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {Object.entries(skills).map(([category, items], i) => (
             <div

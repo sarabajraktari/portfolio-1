@@ -19,7 +19,7 @@ export default function Hero() {
       { opacity: 1, y: 0, duration: 1.5, delay: 0.5, ease: "power3.out" }
     );
 
-    // Animate stars background
+    // Animate stars
     const stars = starsRef.current.children;
     for (let star of stars) {
       const delay = Math.random() * 2;
@@ -34,45 +34,25 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative section text-white text-center overflow-hidden h-screen">
-      {/* SVG Gradient Background */}
-      <svg className="absolute inset-0 w-full h-full z-0">
-        <defs>
-          <linearGradient
-            id="grad1"
-            x1="-154.32"
-            y1="263.27"
-            x2="-154.32"
-            y2="374.3"
-            gradientTransform="matrix(-1, 0, 0, 1.36, 231.36, -100.14)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset="0.07" stopColor="#9c536b" />
-            <stop offset="0.98" stopColor="#d98981" />
-          </linearGradient>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#grad1)" />
-      </svg>
-
+    <section className="relative section text-white text-center overflow-hidden h-screen bg-gray-900">
       {/* Stars background */}
-      <div ref={starsRef} className="absolute inset-0 z-10">
-        {Array.from({ length: 50 }).map((_, i) => (
+      <div ref={starsRef} className="absolute inset-0 z-0 pointer-events-none">
+        {Array.from({ length: 100 }).map((_, i) => (
           <div
             key={i}
-            className="absolute bg-white rounded-full"
+            className="absolute bg-white rounded-full opacity-70"
             style={{
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
+              width: `${Math.random() * 2 + 1}px`,
+              height: `${Math.random() * 2 + 1}px`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.9 + 0.1,
             }}
           />
         ))}
       </div>
 
       {/* Hero content */}
-      <div className="relative z-20 container flex flex-col justify-center items-center h-full">
+      <div className="relative z-10 container flex flex-col justify-center items-center h-full">
         <h1
           ref={titleRef}
           className="text-4xl md:text-6xl font-bold mb-4 text-white"
