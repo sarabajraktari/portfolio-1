@@ -1,15 +1,16 @@
-import { useRef, useEffect } from "react";
-import Navbar from "./components/Navbar.jsx";
-import Hero from "./components/Hero.jsx";
-import Skills from "./components/Skills.jsx";
-import Experience from "./components/Experience.jsx";
-import Projects from "./components/Projects.jsx";
-import Courses from "./components/Courses.jsx";
+import { gsap } from "gsap";
+import { useEffect, useRef } from "react";
+import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
+import Courses from "./components/Courses.jsx";
+import Experience from "./components/Experience.jsx";
 import Footer from "./components/Footer.jsx";
+import Hero from "./components/Hero.jsx";
+import Navbar from "./components/Navbar.jsx";
+import Projects from "./components/Projects.jsx";
+import Skills from "./components/Skills.jsx";
 import FireSVG from "./gsap/FireSVG";
 import Stars from "./gsap/Stars.jsx";
-import { gsap } from "gsap";
 
 export default function App() {
   const fireRef = useRef(null);
@@ -88,6 +89,7 @@ export default function App() {
         <Navbar />
         <main>
           <Hero />
+          <About firePos={mousePos} />
           <Skills firePos={mousePos} />
           <Experience firePos={mousePos} />
           <Projects firePos={mousePos} />
