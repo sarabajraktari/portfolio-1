@@ -8,9 +8,26 @@ html, body, #root {
 }
 
 .section {
-  @apply py-20;
+  @apply py-6 md:py-20;
 }
 
 .container {
-  @apply max-w-6xl mx-auto px-6;
+  @apply max-w-6xl mx-auto lg:px-0 px-4;
+}
+.wrapper {
+  perspective: 1000px;
+}
+
+.slider {
+  transform-style: preserve-3d;
+}
+
+.slide {
+  min-height: 100vh; /* full viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  font-size: 2rem;
+  color: white;
 }

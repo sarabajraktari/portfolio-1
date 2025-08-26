@@ -1,4 +1,6 @@
-export default function Experience() {
+import Card from "../card/Card"
+
+export default function Experience({firePos}) {
   const items = [
     {
       company: 'Starlabs',
@@ -25,20 +27,20 @@ export default function Experience() {
     },
   ]
   return (
-    <section id="experience" className="section bg-white">
-      <div className="container">
+    <section id="experience" className="section">
+      <div className="container text-white">
         <h2 className="text-3xl font-bold mb-8 text-center">Experience</h2>
         <div className="space-y-6">
           {items.map((exp) => (
-            <div key={exp.company} className="border rounded-2xl p-6">
+            <Card firePos={firePos} key={exp.company}>
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                 <h3 className="text-xl font-semibold">{exp.role} · {exp.company}</h3>
-                <p className="text-sm text-gray-600">{exp.period}</p>
+                <p className="text-sm text-gray-400">{exp.period}</p>
               </div>
               <ul className="list-disc pl-6 space-y-2">
                 {exp.bullets.map((b, i) => <li key={i}>{b}</li>)}
               </ul>
-            </div>
+            </Card>
           ))}
         </div>
       </div>

@@ -1,9 +1,7 @@
-import { useState, useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import { useState } from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const starsRef = useRef(null);
 
   const links = [
     { href: "#skills", label: "Skills" },
@@ -13,38 +11,8 @@ export default function Navbar() {
     { href: "#contact", label: "Contact" },
   ];
 
-  useEffect(() => {
-    const starsContainer = starsRef.current;
-    starsContainer.innerHTML = "";
-
-    // Create 50 small stars
-    for (let i = 0; i < 50; i++) {
-      const star = document.createElement("div");
-      star.className = "absolute bg-white rounded-full opacity-70";
-      const size = Math.random() * 2 + 1;
-      star.style.width = `${size}px`;
-      star.style.height = `${size}px`;
-      star.style.top = `${Math.random() * 100}%`;
-      star.style.left = `${Math.random() * 100}%`;
-      starsContainer.appendChild(star);
-
-      gsap.to(star, {
-        opacity: Math.random(),
-        duration: Math.random() * 2 + 1,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-    }
-  }, []);
-
   return (
     <header className="sticky top-0 z-50 w-full">
-      {/* Stars background */}
-      <div
-        ref={starsRef}
-        className="absolute inset-0 -z-10 pointer-events-none bg-gray-900"
-      />
 
       {/* Navbar content */}
       <nav className="relative container flex items-center justify-between py-4 bg-gray-900/90 backdrop-blur border-b border-gray-700">
@@ -64,7 +32,7 @@ export default function Navbar() {
         <path
           d="M 3 8 C 9 3, 16 14, 22 8 
             M 3 16 C 8 10, 16 22, 22 16"
-          stroke="#111827"
+          stroke="#fde047"
           strokeWidth="1"
           fill="none"
           className="opacity-70"

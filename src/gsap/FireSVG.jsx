@@ -35,7 +35,7 @@ export default function FireSVG() {
   }, []);
 
   return (
-    <svg viewBox="0 -20 120 240" className="w-32 h-32 left-0 right-0 absolute inset-0 pointer-events-none">
+    <svg viewBox="0 -20 120 240" className="w-[5rem] h-[5rem] md:w-20 md:h-20 md:left-0 right-0 absolute inset-0 pointer-events-none">
       <defs>
         <linearGradient id="fire-gradient-basic" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop stopColor="#ffb200" offset="0.2" />

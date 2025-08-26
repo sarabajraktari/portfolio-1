@@ -1,4 +1,6 @@
-export default function Projects() {
+import Card from "../card/Card"
+
+export default function Projects({firePos}) {
   const projects = [
     {
       name: 'Coach Finder',
@@ -38,16 +40,16 @@ export default function Projects() {
     },
   ]
   return (
-    <section id="projects" className="section bg-gray-50">
-      <div className="container">
+    <section id="projects" className="section">
+      <div className="container text-white">
         <h2 className="text-3xl font-bold mb-8 text-center">Projects</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((p) => (
-            <a key={p.name} href={p.link} target="_blank" rel="noreferrer" className="block border rounded-2xl p-6 hover:shadow-lg transition">
+            <Card firePos={firePos} key={p.name} href={p.link} target="_blank" rel="noreferrer">
               <h3 className="text-xl font-semibold">{p.name}</h3>
-              <p className="text-sm text-gray-600 mb-2">{p.stack}</p>
-              <p className="text-gray-800">{p.desc}</p>
-            </a>
+              <p className="text-sm text-gray-300 mb-2">{p.stack}</p>
+              <p className="text-gray-400">{p.desc}</p>
+            </Card>
           ))}
         </div>
       </div>
