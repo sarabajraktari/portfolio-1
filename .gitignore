@@ -1,0 +1,26 @@
+# dependencies
+/node_modules
+
+# build output
+/dist
+/build
+
+# misc
+.DS_Store
+Thumbs.db
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# lock files (optional – if you want cross-device installs to always rebuild)
+# uncomment if you don’t want to commit lockfiles
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# editor stuff
+.vscode/
+.idea/
