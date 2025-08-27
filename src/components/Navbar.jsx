@@ -19,45 +19,28 @@ export default function Navbar() {
       <nav className="relative container flex items-center justify-between py-4 bg-gray-900/90 backdrop-blur border-b border-gray-700">
       <a
         href="#"
-        className="flex items-center gap-2 font-semibold tracking-tight text-black group"
+        className="flex items-center gap-2 font-mono font-semibold tracking-tight text-black group"
       >
-        {/* Planet SVG */}
-    <svg
-        className="w-8 h-8 text-gray-800 transition-transform duration-500 group-hover:rotate-180"
-        fill="currentColor"
-        viewBox="0 0 24 24"
-      >
-        {/* Planet in the middle */}
-        <circle cx="12" cy="12" r="10" className="text-blue-900" fill="currentColor" />
-
-        <path
-          d="M 3 8 C 9 3, 16 14, 22 8 
-            M 3 16 C 8 10, 16 22, 22 16"
-          stroke="#fde047"
-          strokeWidth="1"
-          fill="none"
-          className="opacity-70"
-        />
-      </svg>
-
+        <span className="text-xl text-gray-400 transition-transform duration-500 group-hover:scale-110">
+          &lt;SB/&gt;
+        </span>
       </a>
 
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-6 text-white">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a href={l.href} className="hover:text-gray-500">
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+      {/* Desktop Menu */}
+      <ul className="hidden md:flex gap-6 text-gray-400">
+        {links.map((l) => (
+          <li key={l.href}>
+            <a href={l.href} className="hover:text-gray-300">
+              {l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
 
         {/* Mobile Hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden px-4 py-2 border rounded-lg text-white border-gray-600"
+          className="md:hidden px-4 py-2 border rounded-lg text-gray-400 border-gray-400"
         >
          { open ? "X" : "☰" }
         </button>
@@ -65,12 +48,12 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <ul className="flex h-screen flex-col gap-4 p-4 border-t border-gray-700 bg-gray-900/95 text-white md:hidden">
+        <ul className="flex h-screen flex-col gap-4 p-4 border-t border-t-gray-400 bg-gray-900/95 text-gray-400 md:hidden">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="block py-2 text-center hover:text-gray-500"
+                className="block py-2 text-center hover:text-gray-300"
                 onClick={() => setOpen(false)}
               >
                 {l.label}

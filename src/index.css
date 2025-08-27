@@ -8,7 +8,7 @@ html, body, #root {
 }
 
 .section {
-  @apply py-6 md:py-20;
+  @apply py-6 md:py-14;
 }
 
 .container {

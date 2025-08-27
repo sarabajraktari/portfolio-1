@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 
-const Card = ({ children, className = "", firePos, ...props }) => {
+const Card = ({ children, className = "", firePos, href, ...props }) => {
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -38,6 +38,21 @@ const Card = ({ children, className = "", firePos, ...props }) => {
 
     return () => cancelAnimationFrame(animationFrame);
   }, [firePos]);
+
+  // Conditionally render <a> if href exists, otherwise <div>
+  if (href) {
+    return (
+      <a
+        ref={cardRef}
+        href={href}
+        className={`relative border-none rounded-2xl p-6 shadow-lg flex flex-col text-white ${className}`}
+        style={{ backgroundColor: "rgba(31,41,55,0.4)" }}
+        {...props}
+      >
+        {children}
+      </a>
+    );
+  }
 
   return (
     <div

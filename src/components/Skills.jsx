@@ -2,9 +2,9 @@ import Card from "../card/Card";
 
 export default function Skills({firePos}) {
   const skills = {
-    Languages: ["PHP", "JavaScript", "TypeScript", "HTML", "CSS"],
-    Frameworks: ["Laravel", "Vue.js", "ReactJS", "Angular"],
-    Tools: ["Git", "GitHub", "TailwindCSS", "Firebase", "Vuex"],
+    Languages: ["PHP", "Wordpress", "JavaScript", "TypeScript", "HTML", "CSS"],
+    Frameworks: ["Laravel", "Vue.js", "ReactJS", "Angular", 'Alpine.js'],
+    Tools: ["Git", "GitHub", "TailwindCSS", "Firebase", "Vuex", 'ACF'],
     Database: ["MySQL"],
     Testing: ["Mocha", "Postman"],
   };
