@@ -1,37 +1,23 @@
-import Card from "../card/Card";
-
-export default function Skills({firePos}) {
-  const skills = {
-    Languages: ["PHP", "Wordpress", "JavaScript", "TypeScript", "HTML", "CSS"],
-    Frameworks: ["Laravel", "Vue.js", "ReactJS", "Angular", 'Alpine.js'],
-    Tools: ["Git", "GitHub", "TailwindCSS", "Firebase", "Vuex", 'ACF'],
-    Database: ["MySQL"],
-    Testing: ["Mocha", "Postman"],
-  };
+export default function Skills() {
+  const groups = [
+    { label: "Core", items: ["PHP", "WordPress", "JavaScript", "TypeScript", "HTML", "CSS", "MySQL"] },
+    { label: "Frameworks", items: ["Laravel", "Vue.js", "React", "Angular", "Alpine.js", "Tailwind CSS"] },
+    { label: "Workflow", items: ["Git", "GitHub", "ACF", "Gutenberg", "Twig", "Firebase", "Postman", "Mocha"] },
+  ];
 
   return (
-    <section
-      id="skills"
-      className="relative w-full section py-20 overflow-hidden text-white">
-
-      {/* Skills Grid */}
-      <div className="container relative z-20">
-        <h2 className="text-3xl font-bold text-center my-10">Skills</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Object.entries(skills).map(([category, items]) => (
-            <Card firePos={firePos} className="items-center" key={category}>
-              <h3 className="text-xl font-semibold mb-3">{category}</h3>
-              <ul className="flex flex-wrap gap-2 justify-center mt-2">
-                {items.map((item) => (
-                  <li
-                    key={item}
-                    className="px-3 py-1 rounded-full bg-gray-700 text-sm"
-                  >
-                    {item}
-                  </li>
-                ))}
+    <section id="skills" className="section">
+      <div className="container">
+        <span className="section-label">Technical toolkit</span>
+        <h2 className="section-title">Tools I work with</h2>
+        <div className="grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 md:grid-cols-3">
+          {groups.map((group) => (
+            <div key={group.label} className="bg-slate-950/90 p-7 md:p-9">
+              <h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">{group.label}</h3>
+              <ul className="flex flex-wrap gap-2">
+                {group.items.map((item) => <li key={item} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm text-slate-300">{item}</li>)}
               </ul>
-            </Card>
+            </div>
           ))}
         </div>
       </div>
