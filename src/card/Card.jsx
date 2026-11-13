@@ -45,8 +45,8 @@ const Card = ({ children, className = "", firePos, href, ...props }) => {
       <a
         ref={cardRef}
         href={href}
-        className={`relative border-none rounded-2xl p-6 shadow-lg flex flex-col text-white ${className}`}
-        style={{ backgroundColor: "rgba(31,41,55,0.4)" }}
+        className={`group relative flex flex-col rounded-3xl border border-white/10 p-6 text-white shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-amber-300/30 ${className}`}
+        style={{ backgroundColor: "rgba(15,23,42,0.72)" }}
         {...props}
       >
         {children}
@@ -57,8 +57,8 @@ const Card = ({ children, className = "", firePos, href, ...props }) => {
   return (
     <div
       ref={cardRef}
-      className={`relative border-none rounded-2xl p-6 shadow-lg flex flex-col text-white ${className}`}
-      style={{ backgroundColor: "rgba(31,41,55,0.4)" }}
+      className={`relative flex flex-col rounded-3xl border border-white/10 p-6 text-white shadow-xl shadow-black/10 ${className}`}
+      style={{ backgroundColor: "rgba(15,23,42,0.72)" }}
       {...props}
     >
       {children}

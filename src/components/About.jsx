@@ -1,65 +1,30 @@
-import Card from "../card/Card";
+export default function About() {
+  const services = [
+    { number: "01", title: "WordPress development", text: "Custom themes, Gutenberg blocks and flexible CMS experiences built around real content needs." },
+    { number: "02", title: "Backend architecture", text: "Maintainable PHP, MVC patterns, integrations and data models that are clear to extend." },
+    { number: "03", title: "Front-end implementation", text: "Responsive interfaces with Tailwind CSS, Alpine.js, Vue and React — with performance in mind." },
+  ];
 
-export default function About({firePos}){
-    return (
-        <section id="about" className="relative w-full section py-20 overflow-hidden text-white">
-            {/* About / Info Cards */}
-            <div className="flex flex-col items-center">
-                <h2 className="text-3xl font-bold text-center my-10">About</h2>
-                <div className="relative z-30 container grid md:grid-cols-2 gap-10">
-                <Card firePos={firePos} className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-                {/* Heading */}
-                <h2 className="text-2xl font-bold mb-4 border-b border-gray-600 pb-2">
-                    About Me
-                </h2>
-
-                {/* Main paragraph */}
-                <p className="text-gray-200 leading-relaxed">
-                    I'm a web developer with 3 years of experience building <span className="font-semibold">custom WordPress themes</span> and web applications using <span className="font-semibold">PHP with MVC architecture</span>. 
-                    I create dynamic and maintainable websites using <span className="font-semibold">Gutenberg blocks, Twig, and Tailwind CSS</span>, while adding interactivity with <span className="font-semibold">Alpine.js</span>. 
-                    My focus is on delivering <span className="font-semibold">clean, performant, and user-friendly applications</span> that combine solid backend logic with modern front-end practices.
-                </p>
-
-                {/* Location / Footer */}
-                <p className="text-sm text-gray-400 mt-3 italic">
-                    Based in Prizren, Kosovo.
-                </p>
-                </Card>
-
-                <Card firePos={firePos} className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-                <h2 className="text-2xl font-bold mb-4 border-b border-gray-600 pb-2">
-                    Education
-                </h2>
-
-                <div className="space-y-3 text-sm leading-snug text-gray-200">
-                    {/* Degree and University */}
-                    <div className="font-medium text-gray-100">
-                    BSc in Computer Science, University of Prizren &quot;Ukshin Hoti&quot;
-                    </div>
-
-                    {/* Years and Focus */}
-                    <div className="text-gray-400 italic">2018 – 2021 · Software Design</div>
-
-                    {/* Coursework */}
-                    <div>
-                    <span className="font-semibold text-gray-100">Coursework:</span>{" "}
-                    Software Development, Algorithms & Data Structures, Database Administration, Network Design
-                    </div>
-
-                    {/* Projects & Highlights */}
-                    <div>
-                    <span className="font-semibold text-gray-100">Projects & Highlights:</span>
-                    <ul className="list-disc list-inside mt-1 space-y-1 text-gray-300">
-                        <li>Developed small-scale software projects applying MVC and database principles</li>
-                        <li>Designed and implemented database schemas and queries for class projects</li>
-                        <li>Worked on collaborative software design assignments emphasizing modular, maintainable code</li>
-                    </ul>
-                    </div>
-                </div>
-                </Card>
-
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section id="about" className="section border-y border-white/[0.06] bg-slate-900/30">
+      <div className="container">
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div>
+            <span className="section-label !text-left">What I do</span>
+            <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">From solid foundations to polished interfaces.</h2>
+            <p className="mt-6 max-w-lg text-lg leading-8 text-slate-400">I enjoy turning complex requirements into clear digital experiences. I work across the stack, but my strongest focus is building custom, maintainable WordPress products.</p>
+            <p className="mt-5 text-sm text-slate-500">Based in Prizren, Kosovo · BSc in Computer Science</p>
+          </div>
+          <div className="divide-y divide-white/10 border-y border-white/10">
+            {services.map((service) => (
+              <article key={service.number} className="grid gap-3 py-7 sm:grid-cols-[48px_1fr]">
+                <span className="font-mono text-sm text-amber-300">{service.number}</span>
+                <div><h3 className="text-xl font-semibold text-white">{service.title}</h3><p className="mt-2 leading-7 text-slate-400">{service.text}</p></div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
